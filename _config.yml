@@ -14,21 +14,45 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: FossCrunch
-email: your-email@example.com
+email: hello@fosscrunch.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  FossCrunch covers the breakthrough technologies and scientific discoveries 
+  that will shape humanity’s future. Our mission is to empower our readers and 
+  drive the development of these transformative technologies towards maximizing human potential. 
 
   
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "fosscrunch.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "fosscrunch.com"
 twitter_username: fosscrunchoff
+
 
 # Build settings
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+
+timezone: Asia/Kolkata
+future: true
+
+paginate_path: /pages/page:num
+paginate: 18
+
+defaults:
+  -
+    scope:
+      path: "" 
+      type: "posts"
+    values:
+      post: "true"
+  - 
+    scope:
+      path: "category"
+      type: "pages"
+    values:
+      author: "Dhinesh Kumar M"
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

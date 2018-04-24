@@ -33,16 +33,24 @@ Table OF Contents
 
 body {
 
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'PT Sans', sans-serif!important;
 	color:#2C2C2C;
 	font-size:15px;
 	font-weight:300;
 }
 
 h1,h2,h3,h4,h5,h6 {
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'PT Sans', sans-serif!important;
 	color: #07090C;
 	font-weight:700;
+	text-decoration: none!important;
+
+}
+
+p{
+	font-family: 'PT Sans', sans-serif!important;
+	color: #111;
+	
 }
 
 h1 {
@@ -73,7 +81,7 @@ a {
 a:hover,
 a:focus{
 	color: #EF233C;
-    text-decoration: none;
+    text-decoration: none!important;
     outline: none;
 }
 
@@ -580,7 +588,7 @@ textarea.input {
 	padding: 0px 15px;
 	height: 30px;
 	line-height: 30px;
-	background: #EF233C;
+	/*background: #EF233C;  TODO */
 	color: #FFF;
 	text-transform: uppercase;
 	font-size: 12.5px;
@@ -596,6 +604,8 @@ textarea.input {
 
 .article .article-title > a {
 	font-weight:700;
+	color: #111;
+
 }
 
 .article .article-meta {
@@ -607,8 +617,7 @@ textarea.input {
 	display:inline-block;
 	color:#adadad;
 	font-weight:400;
-	font-size:12.5px;
-	text-transform:uppercase;
+	font-size:12px;
 }
 
 .article .article-meta li + li {
