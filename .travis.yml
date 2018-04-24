@@ -1,0 +1,27 @@
+language: ruby
+node_js:
+- '7'
+cache: bundler
+branches:
+  only:
+  - master
+notifications:
+  slack:
+    secure: G267BFxk+pt29jiWF30C7Gkl7VrKFpZ2IwUD4EvleKdQnvHYmgEeqFJ15g0n2e6TT3GZVTioPWRlnMK1AvKLNU1FRJcWXWtG4tC9KMMYnazGQB2W+EnN2KW8V8CMcPmVdgQxBSiqWi6UufQBpG1XU1tXJVgx4qufPX2SARQ0dtgecrhPPRHieNMSd/LNjHwXfE557pwSSQl8MBDy+/3iDIBWd42Nyve9vxdKfSjwS9f0Gbkk0Wm/ryn1NIh6wp5qEidnDXpcBy3xn69LFL2LiEmDGihNvT1CH2jRep5kdKjQwFvowZi/Zj/dpVSl+mpXt2YfttNkWuCstLgLfGACwGK3RQsA9vmR4/L+PWg1gVOb9ukHT0xgfI20glCuRlWcE+yMBPy3u71hjBaUusmhqONswI6CPOjYQPYFuePvy6EH35Smy8nOwEJrupCoHMgNlgkWL7vampaepqTex/+nqOOVfYXp+Mm9Y8GhGs8MQRsg0N+MvM1miIuRrUaKS2CVXjvfNCzchgsE3uPxfDubfZLP1uMx1+LpxQX8OwuKLwi7/u+hbB4Dm77spCBjw1EMaW0NVoQrrepWa4SOffjdcIU8onQMiaVS2+Ls1GqrClmU6aFxZBiSsfAzwe/bIpvdPqW4JgZnwovfQp7ZJ8DjEw2qTFdfnjCmka2wUUlWqS4=
+before_install:
+- rvm install 2.2
+- rvm use 2.2
+- ". $HOME/.nvm/nvm.sh && nvm install 6.1 && nvm use 6.1"
+- gem install bundler
+- bundle check || bundle install
+install:
+- npm install -g firebase-tools
+script:
+- set -e
+- jekyll build
+after_success:
+- firebase deploy --token "$FIREBASE_TOKEN"
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+sudo: false
